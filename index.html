@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlainWeather — Offline Weather Safety, Everywhere</title>
+    <meta name="description" content="Hyperlocal, offline-capable weather-safety guidance and severe-weather action plans — free for everyone. No account, no cloud dependency for safety-critical features. For iOS and Android.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 46'%3E%3Ccircle cx='23' cy='23' r='21' fill='%230c2f4a'/%3E%3Cpath d='M25 8 L14 26 L21 26 L18 38 L32 19 L24 19 Z' fill='%231c7ed6'/%3E%3C/svg%3E">
+    <meta name="theme-color" content="#0c2f4a">
+    <meta property="og:title" content="PlainWeather — Offline Weather Safety, Everywhere">
+    <meta property="og:description" content="Hyperlocal, offline-capable weather-safety guidance and severe-weather action plans — free for everyone.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PlainWeather">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="PlainWeather — Offline Weather Safety, Everywhere">
+    <meta name="twitter:description" content="Hyperlocal, offline-capable weather-safety guidance and severe-weather action plans — free for everyone.">
+    <link rel="stylesheet" href="assets/fonts/inter.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "PlainWeather",
+      "alternateName": "PlainWeather — Offline Weather Safety, Everywhere",
+      "description": "Offline, on-device severe-weather action guides, safety calculators, and go/no-go checklists. No account, no ads, no required backend for safety-critical features. Free core, with an optional one-time PlainWeather Pro unlock.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "iOS, Android (in development)",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free forever core, with an optional one-time PlainWeather Pro unlock"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "EqualInformation, LLC",
+        "url": "https://equalinformation.com"
+      }
+    }
+    </script>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">
+            <svg class="mark" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="23" cy="23" r="21" fill="var(--green-900)"/>
+                <path d="M25 8 L14 26 L21 26 L18 38 L32 19 L24 19 Z" fill="var(--green-600)"/>
+            </svg>
+            PlainWeather
+        </a>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#hero" class="nav-cta">Coming Soon</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="Menu">&#9776;</button>
+    </div>
+</nav>
+
+<header class="hero" id="hero">
+    <div class="wrap">
+        <h1>Weather-Safe,<br><span class="accent">Even Offline</span></h1>
+        <p class="tagline">Hyperlocal severe-weather guidance that works with zero signal — free, for everyone.</p>
+        <p class="lede">
+            PlainWeather packs offline severe-weather action guides, safety calculators, and go/no-go
+            checklists onto your phone before the storm arrives — built for the moments a paid weather
+            service or a live connection is exactly what you don't have. Every safety-critical feature
+            works with no signal, no account, and no subscription, because information shared is power shared.
+        </p>
+        <div class="store-buttons">
+            <span class="store-pill">
+                <svg class="platform-icon" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.05 12.536c-.03-2.99 2.44-4.428 2.55-4.494-1.39-2.033-3.556-2.312-4.327-2.343-1.844-.188-3.6 1.086-4.535 1.086-.935 0-2.38-1.06-3.913-1.03-2.014.03-3.87 1.17-4.905 2.973-2.09 3.625-.534 8.99 1.502 11.93.995 1.44 2.18 3.056 3.735 2.998 1.5-.06 2.067-.97 3.884-.97 1.817 0 2.325.97 3.913.94 1.617-.03 2.64-1.47 3.628-2.917 1.145-1.673 1.617-3.29 1.646-3.372-.036-.016-3.155-1.211-3.178-4.8Z"/><path d="M14.35 3.9c.826-1.003 1.383-2.397 1.23-3.9-1.19.048-2.63.793-3.484 1.796-.766.888-1.436 2.31-1.256 3.68 1.34.104 2.685-.68 3.51-1.576Z"/></svg>
+                <span>iOS<span class="soon">Coming soon</span></span>
+            </span>
+            <span class="store-pill">
+                <svg class="platform-icon" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M3.6 3.5c-.36.36-.55.87-.55 1.4v14.2c0 .53.19 1.04.55 1.4l.1.08L12 12l-8.3-8.58-.1.08Z"/><path d="M15.6 9.6 12.9 8 4.5 3l8.05 8.05L15.6 9.6Z"/><path d="M15.6 14.4l-2.7 1.6L4.5 21l8.05-8.05 3.05 1.45Z"/><path d="M17.4 10.9c.6.35.98.98.98 1.7 0 .72-.38 1.35-.98 1.7l-1.8 1.05-2.6-2.75 2.6-2.75 1.8 1.05Z"/></svg>
+                <span>Android<span class="soon">Coming soon</span></span>
+            </span>
+        </div>
+        <div class="stats">
+            <div class="stat"><div class="num">$0</div><div class="label">For every safety-critical feature, always</div></div>
+            <div class="stat"><div class="num">14</div><div class="label">Offline hazard action guides at launch</div></div>
+            <div class="stat"><div class="num">0</div><div class="label">Accounts required</div></div>
+            <div class="stat"><div class="num">58</div><div class="label">Features already scoped for launch</div></div>
+        </div>
+    </div>
+</header>
+
+<section id="how">
+    <div class="wrap">
+        <div class="section-head">
+            <span class="kicker">How it works</span>
+            <h2>Ready before the signal drops</h2>
+            <p>Download once, and the safety-critical layer never depends on a connection again.</p>
+        </div>
+        <div class="steps">
+            <div class="step"><div class="n">1</div><h3>Download your region</h3><p>Hazard guides and seasonal risk profiles for your area, cached fully on your phone.</p></div>
+            <div class="step"><div class="n">2</div><h3>Open when it matters</h3><p>A tornado, a heatwave, a lightning storm — the right guide is already on your device.</p></div>
+            <div class="step"><div class="n">3</div><h3>Follow calm, offline steps</h3><p>Clear action guides and safety calculators that work with zero signal, zero servers.</p></div>
+            <div class="step"><div class="n">4</div><h3>Stay current when online</h3><p>PlainWeather quietly refreshes your forecast when you have signal, with a visible "last updated" time.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="tint" id="features">
+    <div class="wrap">
+        <div class="section-head">
+            <span class="kicker">Features</span>
+            <h2>Built for the moment the weather turns</h2>
+            <p>58 features, scoped and prioritized — the ones that keep you safe are free, permanently.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">&#9928;</div>
+                <h3>14 Hazard Action Guides</h3>
+                <p>Tornado, hurricane, flash flood, wildfire, blizzard, heatwave, lightning, and more — exact offline steps for each.</p>
+                <span class="tag free">Free</span>
+            </div>
+            <div class="card">
+                <div class="icon blue">&#9889;</div>
+                <h3>Lightning Countdown</h3>
+                <p>The built-in "30-30 rule" flash-to-bang timer tells you when it's unsafe outside, and when it's safe again.</p>
+                <span class="tag free">Free</span>
+            </div>
+            <div class="card">
+                <div class="icon">&#127777;</div>
+                <h3>Heat, Cold &amp; Sun Calculators</h3>
+                <p>Heat index, wind chill, wet-bulb globe temperature, and UV burn-time — the numbers that decide go or no-go.</p>
+                <span class="tag free">Free</span>
+            </div>
+            <div class="card">
+                <div class="icon blue">&#127806;</div>
+                <h3>Farmer, Fisherman &amp; Worksite Checklists</h3>
+                <p>Frost calendars, boating conditions, and construction-site lightning/wind stoppage thresholds.</p>
+                <span class="tag free">Free</span>
+            </div>
+            <div class="card">
+                <div class="icon">&#128118;</div>
+                <h3>Kids, Elderly &amp; Chronic-Illness Modes</h3>
+                <p>Simplified, visual guidance for children, larger-text mode for elderly users, and asthma/COPD/cardiac notes.</p>
+                <span class="tag free">Free</span>
+            </div>
+            <div class="card">
+                <div class="icon blue">&#127968;</div>
+                <h3>Family Plan &amp; Safe Room Guide</h3>
+                <p>Build a household emergency plan and learn to identify or improvise a safe room. Cross-device sync is Pro.</p>
+                <span class="tag free">Free</span><span class="tag pro">Pro</span>
+            </div>
+            <div class="card">
+                <div class="icon">&#128225;</div>
+                <h3>Last-Synced Forecast &amp; Pressure Trend</h3>
+                <p>Caches your forecast when you're online, and reads your phone's own barometer for an offline "weather changing" signal.</p>
+                <span class="tag free">Free</span>
+            </div>
+            <div class="card">
+                <div class="icon blue">&#128506;</div>
+                <h3>Saved Locations &amp; Offline Maps</h3>
+                <p>One home region free, forever. Pro adds unlimited saved locations and extra offline evacuation-route map packs.</p>
+                <span class="tag free">Free</span><span class="tag pro">Pro</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tint" id="privacy">
+    <div class="wrap">
+        <div class="privacy-banner">
+            <h2>No safety-critical feature is ever paywalled — full stop.</h2>
+            <p>
+                PlainWeather is offline-first: no account, no ads, no analytics or tracking SDKs, and no
+                PlainWeather server holds your personal data. The only optional online step is fetching a
+                forecast, which is cached locally the moment you have signal. Read the full
+                <a href="https://bpupadhyaya.github.io/privacy-plainweather.html" target="_blank" rel="noopener">Privacy Policy</a>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="wrap">
+        <div class="section-head">
+            <span class="kicker">Platforms</span>
+            <h2>iPhone and Android, from day one</h2>
+        </div>
+        <div class="platforms">
+            <span class="platform">iPhone</span>
+            <span class="platform">Android</span>
+        </div>
+    </div>
+</section>
+
+<section class="tint" id="pricing">
+    <div class="wrap">
+        <div class="section-head">
+            <span class="kicker">Pricing</span>
+            <h2>Free enough to trust, Pro enough to last</h2>
+            <p>The entire safety-critical layer ships free, forever. Pro sells convenience and depth — never the ability to stay safe.</p>
+        </div>
+        <div class="plans">
+            <div class="plan">
+                <div class="kicker-sm">Free</div>
+                <div class="price">$0</div>
+                <div class="unit">forever</div>
+                <ul>
+                    <li>All 14 offline hazard action guides</li>
+                    <li>Every safety calculator &amp; go/no-go checklist</li>
+                    <li>Kids, elderly &amp; chronic-illness modes</li>
+                    <li>No ads, no account, no trial clock</li>
+                </ul>
+            </div>
+            <div class="plan featured">
+                <div class="kicker-sm">PlainWeather Pro</div>
+                <div class="price">$4.99</div>
+                <div class="unit">one-time purchase — no subscription</div>
+                <ul>
+                    <li>Unlimited saved locations &amp; regions</li>
+                    <li>Extra offline evacuation map packs</li>
+                    <li>Historical reference &amp; event-risk planner</li>
+                    <li>Family-plan sync across household devices</li>
+                </ul>
+            </div>
+            <div class="plan">
+                <div class="kicker-sm">Institutional</div>
+                <div class="price">From $299/yr</div>
+                <div class="unit">schools, farms, construction &amp; event teams</div>
+                <ul>
+                    <li>Multi-seat admin dashboard</li>
+                    <li>Compliance/audit logging of safety thresholds</li>
+                    <li>Custom per-site thresholds &amp; reporting</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="https://bpupadhyaya.github.io/privacy-plainweather.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://bpupadhyaya.github.io/support-plainweather.html" target="_blank" rel="noopener">Support</a></li>
+            <li><a href="https://equalinformation.com" target="_blank" rel="noopener">EqualInformation</a></li>
+        </ul>
+        <p class="footer-copy">
+            &copy; 2026 EqualInformation, LLC. All rights reserved.<br>
+            PlainWeather is in active development — nothing on this page is available for download yet.
+        </p>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.remove('show');
+    });
+});
+</script>
+
+</body>
+</html>
