@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazard Guides — PlainWeather</title>
+    <meta name="description" content="All 14 of PlainWeather's offline severe-weather action guides, browsable right here — the same content that ships free, forever, in the app. Before/during/after steps for tornado, hurricane, flash flood, wildfire, and more.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 46'%3E%3Ccircle cx='23' cy='23' r='21' fill='%230c2f4a'/%3E%3Cpath d='M25 8 L14 26 L21 26 L18 38 L32 19 L24 19 Z' fill='%231c7ed6'/%3E%3C/svg%3E">
+    <meta name="theme-color" content="#0c2f4a">
+    <link rel="stylesheet" href="assets/fonts/inter.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .hazard-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 8px; }
+        .hazard-card {
+            background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+            box-shadow: var(--shadow); overflow: hidden;
+        }
+        .hazard-card summary {
+            list-style: none; cursor: pointer; padding: 20px 22px;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .hazard-card summary::-webkit-details-marker { display: none; }
+        .hazard-card .swatch {
+            width: 40px; height: 40px; border-radius: 10px; flex: none;
+        }
+        .hazard-card summary .titles { flex: 1; }
+        .hazard-card h3 { font-size: 17px; font-weight: 700; color: var(--ink); }
+        .hazard-card .sub { font-size: 13.5px; color: var(--ink-faint); margin-top: 2px; }
+        .hazard-card .chev { color: var(--ink-faint); transition: transform 0.15s; flex: none; }
+        .hazard-card[open] .chev { transform: rotate(90deg); }
+        .hazard-body { padding: 0 22px 22px; border-top: 1px solid var(--line); }
+        .hazard-body h4 {
+            font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+            color: var(--ink-faint); margin: 18px 0 8px;
+        }
+        .hazard-body ul { padding-left: 20px; }
+        .hazard-body li { font-size: 14.5px; color: var(--ink-soft); margin: 6px 0; }
+        .page-hero { padding: 56px 0 8px; text-align: center; }
+        .page-hero h1 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 900; letter-spacing: -0.02em; color: var(--green-900); }
+        .page-hero p { margin-top: 12px; color: var(--ink-soft); max-width: 640px; margin-left: auto; margin-right: auto; }
+        .expand-all { text-align: center; margin: 24px 0 8px; }
+        .expand-all button {
+            background: none; border: 1px solid var(--line); color: var(--blue-700);
+            font-weight: 600; font-size: 14px; padding: 8px 18px; border-radius: 999px; cursor: pointer;
+        }
+        @media (max-width: 720px) { .hazard-list { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">
+            <svg class="mark" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="23" cy="23" r="21" fill="var(--green-900)"/>
+                <path d="M25 8 L14 26 L21 26 L18 38 L32 19 L24 19 Z" fill="var(--green-600)"/>
+            </svg>
+            PlainWeather
+        </a>
+        <ul class="nav-links">
+            <li><a href="hazards.html">Hazard Guides</a></li>
+            <li><a href="./#features">Features</a></li>
+            <li><a href="./#pricing">Pricing</a></li>
+            <li><a href="./#hero" class="nav-cta">Coming Soon</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="Menu">&#9776;</button>
+    </div>
+</nav>
+
+<header class="page-hero wrap">
+    <h1>All 14 hazard guides — free, always</h1>
+    <p>The exact before/during/after content that ships in the app, browsable here on a bigger screen. No install needed to read it — this is the digital twin.</p>
+</header>
+
+<section>
+    <div class="wrap">
+        <div class="expand-all"><button onclick="document.querySelectorAll('.hazard-card').forEach(d => d.open = !d.open)">Expand / collapse all</button></div>
+        <div class="hazard-list" id="hazard-list"></div>
+    </div>
+</section>
+
+<section class="tint" id="privacy">
+    <div class="wrap">
+        <div class="privacy-banner">
+            <h2>This content works with zero signal, in the app.</h2>
+            <p>
+                Reading it here needs a connection to load the page once — but once PlainWeather is installed,
+                every one of these 14 guides is cached on your device and needs no signal, no account, ever.
+                <a href="https://bpupadhyaya.github.io/privacy-plainweather.html" target="_blank" rel="noopener">Privacy Policy</a>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <ul class="footer-links">
+            <li><a href="./#features">Features</a></li>
+            <li><a href="./#pricing">Pricing</a></li>
+            <li><a href="https://bpupadhyaya.github.io/privacy-plainweather.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://bpupadhyaya.github.io/support-plainweather.html" target="_blank" rel="noopener">Support</a></li>
+            <li><a href="https://equalinformation.com" target="_blank" rel="noopener">EqualInformation</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2026 EqualInformation, LLC. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() { document.querySelector('.nav-links').classList.remove('show'); });
+});
+
+// Content mirrors ios/PlainWeather/Models/Hazard.swift and android's model/Hazard.kt --
+// keep in sync with the app if this list changes there.
+const HAZARDS = [
+  { title: "Tornado", sub: "Shelter-in-place steps, safest room, warning signs", color: "#525C6D",
+    sections: [
+      ["Before", ["Know your community's warning system and identify a safe room: basement, or an interior room on the lowest floor with no windows.", "Practice a tornado drill with your household twice a year."]],
+      ["During", ["Go to your safe room immediately when a warning is issued or you see a funnel cloud.", "Cover your head and neck with your arms; add padding (mattress, blankets) if possible.", "If outdoors with no shelter, lie flat in a low spot and cover your head — do not shelter under an overpass.", "If driving, do not try to outrun a tornado in a vehicle; get low in a nearby sturdy building or ditch."]],
+      ["After", ["Watch for downed power lines and gas leaks; avoid damaged buildings.", "Wear sturdy shoes and gloves when inspecting damage — debris hazards are the leading cause of post-tornado injury."]]
+    ]},
+  { title: "Hurricane / Cyclone", sub: "Pre-landfall prep, category decision points, aftermath", color: "#0B6096",
+    sections: [
+      ["Before landfall", ["Know your evacuation zone and route before hurricane season starts.", "Prepare a 7-day supply of water, food, medication, and a battery/hand-crank radio.", "Board windows or install shutters; bring in outdoor furniture and secure loose objects."]],
+      ["Decision points by category", ["Cat 1–2: expect downed trees and power outages — shelter in place is often viable outside surge zones.", "Cat 3+: major structural damage is likely — evacuate if ordered or if you're in a surge zone, mobile home, or flood-prone area.", "Storm surge, not wind category, is the deadliest hurricane hazard — evacuate coastal/low-lying areas regardless of category if ordered."]],
+      ["After", ["Avoid floodwater — it may be electrically charged or contaminated.", "Do not use generators indoors or in enclosed spaces (carbon monoxide risk)."]]
+    ]},
+  { title: "Flash Flood", sub: "“Turn around don't drown,” rising-water signs", color: "#0B7396",
+    sections: [
+      ["Warning signs", ["Rapidly rising water, debris flow, or a roaring sound upstream can precede a flash flood by minutes.", "Flash floods can occur even without local rain — heavy rain upstream is enough."]],
+      ["Turn around, don't drown", ["Never drive or walk into flowing water — 6 inches can knock you down, 12 inches can float a car.", "If your vehicle stalls in water, abandon it immediately and move to higher ground.", "Avoid camping or parking near streams, rivers, or storm drains during heavy rain."]],
+      ["At home", ["Move to higher ground immediately if a flash flood warning is issued for your area.", "Avoid basements during flash flooding — they fill fastest and can trap occupants."]]
+    ]},
+  { title: "Wildfire", sub: "Evacuation triggers, defensible space, smoke limits", color: "#C2410C",
+    sections: [
+      ["Evacuation triggers", ["Leave immediately when authorities order evacuation — don't wait to see the fire yourself.", "Pre-pack a go-bag with documents, medication, and chargers during high fire-danger season."]],
+      ["Defensible space basics", ["Clear dry leaves, brush, and debris within 5 feet of structures.", "Keep gutters clear and store firewood away from the house."]],
+      ["Smoke exposure", ["Stay indoors with windows closed and a HEPA filter running when air quality is poor.", "Wear a properly fitted N95/P100 mask outdoors during heavy smoke — cloth masks do not filter smoke particles.", "Children, older adults, and those with asthma/COPD should limit outdoor exertion at Unhealthy AQI levels or worse."]]
+    ]},
+  { title: "Blizzard / Winter Storm", sub: "Whiteout driving rules, shelter vs. evacuate", color: "#668BAA",
+    sections: [
+      ["Driving", ["Avoid travel during a blizzard warning; if trapped in a vehicle, stay with it — it's easier to find than you are on foot.", "Run the engine sparingly for heat, crack a window, and keep the exhaust pipe clear of snow to avoid carbon monoxide buildup."]],
+      ["Shelter in place vs. evacuate", ["Whiteout conditions make evacuation more dangerous than sheltering — stay put unless directly ordered to leave.", "Stock extra blankets, water, and non-perishable food before a winter storm watch."]],
+      ["Cold exposure", ["Limit outdoor exposure; dress in layers and cover exposed skin to prevent frostbite.", "Watch for hypothermia signs: shivering, slurred speech, confusion — seek warmth immediately."]]
+    ]},
+  { title: "Heatwave", sub: "Escalating steps from hydration to emergency signs", color: "#D96806",
+    sections: [
+      ["Early steps", ["Hydrate proactively — don't wait until thirsty.", "Move strenuous activity to early morning or evening; take breaks in shade or AC."]],
+      ["Escalating signs", ["Heat cramps: muscle pain/spasms — rest, hydrate, stretch.", "Heat exhaustion: heavy sweating, weakness, nausea, cool clammy skin — move to a cool place, hydrate, loosen clothing.", "Heat stroke (EMERGENCY): hot dry skin OR confusion/collapse, high body temperature — call emergency services immediately, cool the person rapidly with water/ice while waiting."]],
+      ["Highest-risk groups", ["Check on elderly neighbors, infants, and outdoor workers during extreme heat — they're most vulnerable and least likely to self-report symptoms."]]
+    ]},
+  { title: "Lightning / Thunderstorm", sub: "Indoor/outdoor safety rules, the 30-30 timer", color: "#7A34C2",
+    sections: [
+      ["Outdoor safety", ["Use the 30-30 rule: if you count less than 30 seconds between seeing a flash and hearing thunder, go indoors immediately.", "Avoid open fields, hilltops, isolated trees, and metal objects (fences, bleachers, golf clubs).", "If caught outside with no shelter, crouch low with feet together, minimizing contact with the ground — this is a last resort, not a safe position."]],
+      ["Indoor safety", ["Stay away from windows, plumbing, and corded electronics during a storm.", "A hard-topped vehicle with windows up is a safe shelter — the metal frame, not the rubber tires, protects you."]],
+      ["After the storm", ["Wait a full 30 minutes after the last thunder before resuming outdoor activity."]]
+    ]},
+  { title: "Hailstorm", sub: "Vehicle and property protection, injury avoidance", color: "#45738C",
+    sections: [
+      ["If driving", ["Pull over under a covered structure (gas station, overpass) if safe to do so — do not stop on the road itself.", "Point the windshield toward the hail if caught in the open; it's more impact-resistant than side/rear windows."]],
+      ["Personal safety", ["Get indoors immediately — large hail can cause serious injury.", "Stay away from windows and skylights during a hailstorm."]],
+      ["Property protection", ["Move vehicles into a garage or under cover ahead of a severe thunderstorm warning if hail is forecast.", "After the storm, photograph damage promptly for insurance before cleanup."]]
+    ]},
+  { title: "Dust Storm / Haboob", sub: "Visibility-loss driving protocol, respiratory protection", color: "#9D7132",
+    sections: [
+      ["If driving when visibility drops", ["Pull off the road as far as possible, turn off lights, and take your foot off the brake so following drivers don't mistake you for a moving vehicle.", "Never stop in a travel lane or try to outrun a dust wall."]],
+      ["Respiratory protection", ["Get indoors and close windows/doors immediately.", "Wear a mask if you must be outside; those with asthma/COPD should stay indoors entirely."]]
+    ]},
+  { title: "Storm Surge & Coastal Flooding", sub: "Evacuation-zone awareness, landfall timing", color: "#0B4A73",
+    sections: [
+      ["Know your risk", ["Storm surge is the deadliest hurricane hazard — check your local evacuation zone before hurricane season.", "Surge can arrive well before a hurricane's eye makes landfall — don't wait for the storm to be overhead."]],
+      ["Evacuation", ["Evacuate immediately when ordered for your zone, regardless of the storm's wind category.", "Move inland and to higher ground — a few miles or feet of elevation can matter."]]
+    ]},
+  { title: "Tsunami", sub: "Natural warning signs plus official alerts", color: "#0E525D",
+    sections: [
+      ["Natural warning signs (act immediately, don't wait for an alert)", ["Strong or long earthquake felt near the coast.", "Unusual, rapid withdrawal of the ocean exposing the sea floor.", "A loud, unusual roar from the ocean."]],
+      ["What to do", ["Move immediately to high ground or as far inland as possible — minutes matter, don't wait for official confirmation if you observe natural warning signs.", "Stay away from the coast until local authorities confirm it's safe — tsunamis arrive in a series of waves, and later waves can be larger."]]
+    ]},
+  { title: "Avalanche", sub: "Terrain risk reading, companion-rescue basics", color: "#7398B4",
+    sections: [
+      ["Terrain risk reading", ["Slopes between 30–45 degrees are the highest avalanche risk.", "Check the local avalanche forecast before backcountry travel and avoid travel during or right after heavy snowfall or rapid warming."]],
+      ["If caught", ["Try to escape to the side of the moving snow; discard poles/pack to move more freely.", "Use swimming motions to stay near the surface; as it slows, thrust a hand upward and try to create an air pocket in front of your face."]],
+      ["Companion rescue", ["Carry and know how to use a beacon, probe, and shovel — most avalanche survivors are rescued by companions, not organized rescue, and speed is critical."]]
+    ]},
+  { title: "Rip Current", sub: "Identification and the swim-parallel escape", color: "#08697A",
+    sections: [
+      ["Identification", ["Look for a channel of choppy, discolored water, a break in the incoming wave pattern, or a line of foam/debris moving steadily seaward."]],
+      ["If caught", ["Don't swim against the current toward shore — you'll exhaust yourself.", "Swim parallel to shore until you're free of the current, then swim back at an angle.", "If you can't escape, float or tread water and call/wave for help — most rip currents are narrow and release you a short distance out."]]
+    ]},
+  { title: "Derecho / Severe Straight-Line Wind", sub: "Distinct from tornado warnings — straight-line wind", color: "#6F5C8B",
+    sections: [
+      ["How it differs from a tornado", ["A derecho brings widespread, long-lived straight-line winds (often 60+ mph over hundreds of miles) rather than a rotating funnel — the damage pattern is uniform, not swirled."]],
+      ["What to do", ["Treat a severe thunderstorm warning with derecho potential like any severe wind event: move away from windows, avoid trees and power lines, and secure or bring in outdoor objects.", "If driving, pull off the road away from trees and overhead lines until it passes."]]
+    ]}
+];
+
+const list = document.getElementById('hazard-list');
+HAZARDS.forEach(h => {
+    const details = document.createElement('details');
+    details.className = 'hazard-card';
+    const bodyHtml = h.sections.map(([title, steps]) =>
+        `<h4>${title}</h4><ul>${steps.map(s => `<li>${s}</li>`).join('')}</ul>`
+    ).join('');
+    details.innerHTML = `
+        <summary>
+            <span class="swatch" style="background:${h.color}"></span>
+            <span class="titles"><h3>${h.title}</h3><div class="sub">${h.sub}</div></span>
+            <span class="chev">&#8250;</span>
+        </summary>
+        <div class="hazard-body">${bodyHtml}</div>`;
+    list.appendChild(details);
+});
+</script>
+
+</body>
+</html>
