@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools &amp; Calculators — PlainWeather</title>
+    <meta name="description" content="All 26 of PlainWeather's offline weather safety calculators and reference guides — lightning countdown, heat index, wind chill, WBGT, UV burn time, air quality, family plan, power-outage prep, and more. Free, forever.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 46'%3E%3Ccircle cx='23' cy='23' r='21' fill='%230c2f4a'/%3E%3Cpath d='M25 8 L14 26 L21 26 L18 38 L32 19 L24 19 Z' fill='%231c7ed6'/%3E%3C/svg%3E">
+    <meta name="theme-color" content="#0c2f4a">
+    <link rel="stylesheet" href="assets/fonts/inter.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .page-hero { padding: 56px 0 8px; text-align: center; }
+        .page-hero h1 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 900; letter-spacing: -0.02em; color: var(--green-900); }
+        .page-hero p { margin-top: 12px; color: var(--ink-soft); max-width: 640px; margin-left: auto; margin-right: auto; }
+        .tool-group { padding: 40px 0; }
+        .tool-group:nth-child(even) { background: var(--paper-tint); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .tool-group-head { margin-bottom: 26px; }
+        .tool-group-head h2 { font-size: 22px; font-weight: 800; color: var(--green-900); letter-spacing: -0.01em; }
+        .tool-group-head p { margin-top: 4px; color: var(--ink-faint); font-size: 14.5px; }
+        .tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .tool-card {
+            background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+            box-shadow: var(--shadow); padding: 20px; display: flex; gap: 14px; align-items: flex-start;
+        }
+        .tool-card .swatch {
+            width: 42px; height: 42px; border-radius: 11px; flex: none;
+            display: flex; align-items: center; justify-content: center; font-size: 19px;
+        }
+        .tool-card h3 { font-size: 15.5px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+        .tool-card p { font-size: 13.5px; color: var(--ink-faint); margin-top: 4px; }
+        @media (max-width: 860px) { .tool-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .tool-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">
+            <svg class="mark" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="23" cy="23" r="21" fill="var(--green-900)"/>
+                <path d="M25 8 L14 26 L21 26 L18 38 L32 19 L24 19 Z" fill="var(--green-600)"/>
+            </svg>
+            PlainWeather
+        </a>
+        <ul class="nav-links">
+            <li><a href="hazards.html">Hazard Guides</a></li>
+            <li><a href="activities.html">Activity Guides</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="./#features">Features</a></li>
+            <li><a href="./#pricing">Pricing</a></li>
+            <li><a href="./#hero" class="nav-cta">Coming Soon</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="Menu">&#9776;</button>
+    </div>
+</nav>
+
+<header class="page-hero wrap">
+    <h1>26 tools &amp; calculators — free, always</h1>
+    <p>Every weather-safety calculator and reference guide PlainWeather ships with, all in one place. Each one runs live on-device in the app — no signal, no account, no paywall.</p>
+</header>
+
+<section class="tool-group">
+    <div class="wrap">
+        <div class="tool-group-head">
+            <h2>Weather Calculators</h2>
+            <p>Plug in a temperature, a wind speed, a flash-to-bang count — get a plain-language risk answer.</p>
+        </div>
+        <div class="tool-grid" id="group-calc"></div>
+    </div>
+</section>
+
+<section class="tool-group">
+    <div class="wrap">
+        <div class="tool-group-head">
+            <h2>Reference &amp; Conditions</h2>
+            <p>Understand what an alert term actually means, and read your region's own risk season.</p>
+        </div>
+        <div class="tool-grid" id="group-ref"></div>
+    </div>
+</section>
+
+<section class="tool-group">
+    <div class="wrap">
+        <div class="tool-group-head">
+            <h2>Health &amp; Household Guidance</h2>
+            <p>Higher-risk groups — pregnancy, chronic illness, pets, and livestock — get their own thresholds.</p>
+        </div>
+        <div class="tool-grid" id="group-health"></div>
+    </div>
+</section>
+
+<section class="tool-group">
+    <div class="wrap">
+        <div class="tool-group-head">
+            <h2>Prep &amp; Planning</h2>
+            <p>The plans and kits worth building before the weather turns, not during.</p>
+        </div>
+        <div class="tool-grid" id="group-prep"></div>
+    </div>
+</section>
+
+<section class="tint" id="privacy">
+    <div class="wrap">
+        <div class="privacy-banner">
+            <h2>Every calculator runs on-device, with zero signal.</h2>
+            <p>
+                Nothing you type into a PlainWeather calculator — a temperature, a location, a skin type — ever
+                leaves your phone. Reading this page needs a connection once, but the app itself never does.
+                <a href="https://bpupadhyaya.github.io/privacy-plainweather.html" target="_blank" rel="noopener">Privacy Policy</a>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <ul class="footer-links">
+            <li><a href="hazards.html">Hazard Guides</a></li>
+            <li><a href="activities.html">Activity Guides</a></li>
+            <li><a href="./#features">Features</a></li>
+            <li><a href="./#pricing">Pricing</a></li>
+            <li><a href="https://bpupadhyaya.github.io/privacy-plainweather.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://bpupadhyaya.github.io/support-plainweather.html" target="_blank" rel="noopener">Support</a></li>
+            <li><a href="https://equalinformation.com" target="_blank" rel="noopener">EqualInformation</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2026 EqualInformation, LLC. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() { document.querySelector('.nav-links').classList.remove('show'); });
+});
+
+// Content mirrors ios/PlainWeather/Models/Tool.swift and android's model/Tool.kt --
+// keep in sync with the app if this list changes there. Swatch colors use each
+// tool's real mid-stop gradient color, matching the app's cards.
+const GROUPS = {
+  'group-calc': [
+    { icon: '&#9889;', title: 'Lightning Timer', sub: '30-30 rule flash-to-bang countdown', color: '#4C3AA8' },
+    { icon: '&#127777;&#65039;', title: 'Heat Index Calculator', sub: 'Temperature + humidity risk calculator', color: '#C2410C' },
+    { icon: '&#128226;', title: 'Watch vs. Warning', sub: 'Plain-language alert-level reference', color: '#145A8F' },
+    { icon: '&#10052;&#65039;', title: 'Wind Chill / Frostbite', sub: 'Wind chill + frostbite time estimate', color: '#1B4D6B' },
+    { icon: '&#128119;', title: 'Work-Rest (WBGT) Estimator', sub: 'Outdoor work/rest guidance for heat', color: '#C2410C' },
+    { icon: '&#128167;', title: 'Dew Point / Mugginess', sub: 'How muggy it actually feels', color: '#166088' },
+    { icon: '&#127968;', title: 'Snow Load Calculator', sub: 'Estimated roof load from snowfall', color: '#3D5266' },
+    { icon: '&#128168;', title: 'Beaufort Wind Scale', sub: 'Plain-language wind-speed reference', color: '#1D6B6B' },
+    { icon: '&#9728;&#65039;', title: 'Sunburn Time-to-Burn', sub: 'Estimated minutes to burn by skin type', color: '#C29010' }
+  ],
+  'group-ref': [
+    { icon: '&#128202;', title: 'Barometric Pressure Trend', sub: 'Live rising/falling pressure, on-device', color: '#145A8F' },
+    { icon: '&#128506;&#65039;', title: 'Regional Seasonal Risk', sub: 'Which hazard seasons apply to your region', color: '#3B4FA8' },
+    { icon: '&#10067;', title: 'Normal vs. Dangerous', sub: 'Recognize when local weather turns unusual', color: '#6B4D1B' },
+    { icon: '&#128567;', title: 'Air Quality & Smoke Guide', sub: 'EPA AQI bands and when to mask up', color: '#66493D' },
+    { icon: '&#128293;', title: 'UV Index & Sun Safety', sub: 'UV index bands and protective action', color: '#C29010' },
+    { icon: '&#9973;', title: 'Marine & Small-Craft Advisory', sub: 'Small-craft advisory terms explained', color: '#166088' }
+  ],
+  'group-health': [
+    { icon: '&#129331;', title: 'Pregnancy & Infant Heat/Cold', sub: 'Higher-risk heat/cold thresholds', color: '#A83B6E' },
+    { icon: '&#10084;&#65039;', title: 'Chronic-Illness Weather Notes', sub: 'Asthma, cardiac, and migraine triggers', color: '#6B3BA8' },
+    { icon: '&#128062;', title: 'Pet Safety Guide', sub: 'Paw burns, cold limits, storm anxiety', color: '#A8763B' },
+    { icon: '&#127806;', title: 'Livestock & Crop Protection', sub: 'Frost, heat stress, and storm prep basics', color: '#3B7A3B' }
+  ],
+  'group-prep': [
+    { icon: '&#127964;&#65039;', title: 'Storm Shelter / Safe Room', sub: 'What makes a room actually safe', color: '#3D5266' },
+    { icon: '&#128106;', title: 'Family Emergency Plan', sub: 'Meeting points and communication plan', color: '#3B4FA8' },
+    { icon: '&#128268;', title: 'Power-Outage Prep', sub: 'Cold-chain, generator safety, CO danger', color: '#6B4D1B' },
+    { icon: '&#128295;', title: 'Seasonal Home Prep', sub: 'Pre-storm and pre-winter home checklist', color: '#1D6B6B' },
+    { icon: '&#128663;', title: 'Vehicle Emergency Kit', sub: 'Winter vs. summer kit, year-round basics', color: '#166088' },
+    { icon: '&#129517;', title: 'Evacuation Route Planning', sub: 'Two routes, a rally point, a paper backup', color: '#66493D' },
+    { icon: '&#128179;', title: 'Household Safety Card', sub: 'Print or text it to someone without a smartphone', color: '#145A8F' }
+  ]
+};
+
+Object.entries(GROUPS).forEach(([id, tools]) => {
+    const container = document.getElementById(id);
+    tools.forEach(t => {
+        const card = document.createElement('div');
+        card.className = 'tool-card';
+        card.innerHTML = `
+            <span class="swatch" style="background:${t.color}">${t.icon}</span>
+            <div><h3>${t.title}</h3><p>${t.sub}</p></div>`;
+        container.appendChild(card);
+    });
+});
+</script>
+
+</body>
+</html>

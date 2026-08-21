@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Guides — PlainWeather</title>
+    <meta name="description" content="All 8 of PlainWeather's offline activity go/no-go guides, browsable right here — the same content that ships free, forever, in the app. Numeric go/no-go thresholds for hiking, farming, fishing, cycling, construction, school sports, outdoor events, and gardening.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 46'%3E%3Ccircle cx='23' cy='23' r='21' fill='%230c2f4a'/%3E%3Cpath d='M25 8 L14 26 L21 26 L18 38 L32 19 L24 19 Z' fill='%231c7ed6'/%3E%3C/svg%3E">
+    <meta name="theme-color" content="#0c2f4a">
+    <link rel="stylesheet" href="assets/fonts/inter.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .hazard-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 8px; }
+        .hazard-card {
+            background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+            box-shadow: var(--shadow); overflow: hidden;
+        }
+        .hazard-card summary {
+            list-style: none; cursor: pointer; padding: 20px 22px;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .hazard-card summary::-webkit-details-marker { display: none; }
+        .hazard-card .swatch {
+            width: 40px; height: 40px; border-radius: 10px; flex: none;
+        }
+        .hazard-card summary .titles { flex: 1; }
+        .hazard-card h3 { font-size: 17px; font-weight: 700; color: var(--ink); }
+        .hazard-card .sub { font-size: 13.5px; color: var(--ink-faint); margin-top: 2px; }
+        .hazard-card .chev { color: var(--ink-faint); transition: transform 0.15s; flex: none; }
+        .hazard-card[open] .chev { transform: rotate(90deg); }
+        .hazard-body { padding: 0 22px 22px; border-top: 1px solid var(--line); }
+        .hazard-body h4 {
+            font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+            color: var(--ink-faint); margin: 18px 0 8px;
+        }
+        .hazard-body ul { padding-left: 20px; }
+        .hazard-body li { font-size: 14.5px; color: var(--ink-soft); margin: 6px 0; }
+        .page-hero { padding: 56px 0 8px; text-align: center; }
+        .page-hero h1 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 900; letter-spacing: -0.02em; color: var(--green-900); }
+        .page-hero p { margin-top: 12px; color: var(--ink-soft); max-width: 640px; margin-left: auto; margin-right: auto; }
+        .expand-all { text-align: center; margin: 24px 0 8px; }
+        .expand-all button {
+            background: none; border: 1px solid var(--line); color: var(--blue-700);
+            font-weight: 600; font-size: 14px; padding: 8px 18px; border-radius: 999px; cursor: pointer;
+        }
+        @media (max-width: 720px) { .hazard-list { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">
+            <svg class="mark" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="23" cy="23" r="21" fill="var(--green-900)"/>
+                <path d="M25 8 L14 26 L21 26 L18 38 L32 19 L24 19 Z" fill="var(--green-600)"/>
+            </svg>
+            PlainWeather
+        </a>
+        <ul class="nav-links">
+            <li><a href="hazards.html">Hazard Guides</a></li>
+            <li><a href="activities.html">Activity Guides</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="./#features">Features</a></li>
+            <li><a href="./#pricing">Pricing</a></li>
+            <li><a href="./#hero" class="nav-cta">Coming Soon</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="Menu">&#9776;</button>
+    </div>
+</nav>
+
+<header class="page-hero wrap">
+    <h1>All 8 activity guides — free, always</h1>
+    <p>Numeric go/no-go thresholds for the moments a hazard guide doesn't quite cover — hiking, farming, fishing, cycling, construction, school sports, outdoor events, and gardening. The exact content that ships in the app, browsable here on a bigger screen.</p>
+</header>
+
+<section>
+    <div class="wrap">
+        <div class="expand-all"><button onclick="document.querySelectorAll('.hazard-card').forEach(d => d.open = !d.open)">Expand / collapse all</button></div>
+        <div class="hazard-list" id="hazard-list"></div>
+    </div>
+</section>
+
+<section class="tint" id="privacy">
+    <div class="wrap">
+        <div class="privacy-banner">
+            <h2>This content works with zero signal, in the app.</h2>
+            <p>
+                Reading it here needs a connection to load the page once — but once PlainWeather is installed,
+                every one of these 8 activity guides is cached on your device and needs no signal, no account, ever.
+                <a href="https://bpupadhyaya.github.io/privacy-plainweather.html" target="_blank" rel="noopener">Privacy Policy</a>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <ul class="footer-links">
+            <li><a href="hazards.html">Hazard Guides</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="./#features">Features</a></li>
+            <li><a href="./#pricing">Pricing</a></li>
+            <li><a href="https://bpupadhyaya.github.io/privacy-plainweather.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://bpupadhyaya.github.io/support-plainweather.html" target="_blank" rel="noopener">Support</a></li>
+            <li><a href="https://equalinformation.com" target="_blank" rel="noopener">EqualInformation</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2026 EqualInformation, LLC. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() { document.querySelector('.nav-links').classList.remove('show'); });
+});
+
+// Content mirrors ios/PlainWeather/Models/Activity.swift and android's model/Activity.kt --
+// keep in sync with the app if this list changes there. Swatches use each
+// activity's real start->end gradient stops, matching the app's cards exactly.
+const ACTIVITIES = [
+  { title: "Outdoor Activity Go/No-Go", sub: "Hiking, boating, construction — one checklist", g: ["#1B3A2E", "#52A97D"],
+    sections: [
+      ["Lightning", ["No thunder heard, no visible lightning within the last 30 minutes: go.", "Any thunder or lightning: stop hiking/boating/construction work immediately and take shelter (see the Lightning Timer tool)."]],
+      ["Heat", ["Heat index under 90°F: go, with regular water breaks.", "Heat index 90–103°F: go with caution — shade breaks every 20–30 minutes, watch for heat-exhaustion signs.", "Heat index over 103°F: reschedule strenuous outdoor activity, or limit to early morning/evening."]],
+      ["Wind & visibility", ["Sustained wind over 25 mph: postpone boating in small craft, secure loose gear on job sites.", "Visibility under a quarter mile (fog, dust, heavy rain): postpone hiking/boating departures."]],
+      ["Common mistakes", ["Checking only the morning forecast and not re-checking before an afternoon activity — conditions can shift quickly, especially for thunderstorm risk.", "Treating “mostly sunny” as “no risk” — isolated thunderstorms and sudden wind events can occur even on an otherwise clear-looking day."]]
+    ]},
+  { title: "Farming Frost & Planting Calendar", sub: "Frost-risk reference for crop protection", g: ["#2E2410", "#A98430"],
+    sections: [
+      ["Understanding frost risk", ["Your local “last spring frost” and “first fall frost” dates define the safe planting window for tender crops — check your regional extension office's published dates.", "A frost advisory means temperatures of 33–36°F are expected; a freeze warning means 32°F or below — both can damage exposed crops."]],
+      ["Protecting crops", ["Cover plants with row cover, burlap, or sheets before sunset when frost is forecast — remove covers by mid-morning.", "Water soil in the afternoon before a frost night — moist soil holds heat better than dry soil overnight.", "For orchard crops, wind machines or overhead irrigation (running continuously through the freeze) are standard commercial frost-protection methods."]],
+      ["Common mistakes", ["Removing frost covers too late in the morning, trapping heat and humidity and stressing plants once the sun is up.", "Assuming a clear, calm night means no frost risk — clear skies and calm wind are actually the classic setup for a radiational-cooling frost, since clouds and wind both help prevent it."]]
+    ]},
+  { title: "Fishing & Boating Conditions", sub: "Wind, wave, visibility go/no-go", g: ["#0C2F4A", "#1C7ED6"],
+    sections: [
+      ["Go/no-go thresholds", ["Small Craft Advisory issued (typically sustained winds 18–33 mph or seas 4+ feet, varies by region): small boats should stay in port.", "Waves over 2 feet are uncomfortable and risky for small open boats; check the marine forecast, not just the land forecast."]],
+      ["Before you go", ["File a float plan with someone on shore: route, expected return time, number of people aboard.", "Check the marine weather forecast (not the general city forecast) immediately before departure — conditions offshore change faster than inland."]],
+      ["On the water", ["Watch for building clouds, darkening skies, or a sudden wind shift — signs of an approaching squall.", "Head to shore at the first sign of a thunderstorm; open water offers zero lightning protection."]],
+      ["Common mistakes", ["Trusting the land forecast for a marine trip — wind and wave conditions offshore or on open water regularly differ sharply from the nearest coastal town's forecast.", "Not wearing a life jacket because “the water's calm right now” — most boating fatalities involve someone not wearing one when conditions changed suddenly."]]
+    ]},
+  { title: "Cycling & Running Safety", sub: "Exertion-adjusted heat and air-quality limits", g: ["#3A1B1B", "#C65B3F"],
+    sections: [
+      ["Heat", ["Use the Heat Index calculator with the day's temperature and humidity — exertion raises your effective heat load above the ambient reading.", "Heat index 90°F+: shift runs/rides to early morning or evening, cut intensity, increase fluid intake before and during."]],
+      ["Air quality", ["AQI 0–50 (Good): no restriction. AQI 51–100 (Moderate): unusually sensitive individuals should consider reducing prolonged exertion.", "AQI 101–150+ (Unhealthy for Sensitive Groups or worse): move workouts indoors, especially for anyone with asthma or a heart/lung condition."]],
+      ["Cold & visibility", ["Wind chill below 0°F: cover all exposed skin, limit continuous outdoor exertion.", "Run/ride against traffic in low visibility with reflective gear — fog and heavy rain reduce driver reaction time significantly."]],
+      ["Common mistakes", ["Judging heat risk by air temperature alone — exertion during a run or ride raises your effective heat load well above the thermometer reading; always check heat index, not just temperature.", "Skipping a warm-up in cold weather — cold muscles and joints are more injury-prone, and it takes longer to feel warm once moving."]]
+    ]},
+  { title: "Construction Site Stoppage Thresholds", sub: "Lightning and wind numeric trigger points", g: ["#3A2E10", "#C69730"],
+    sections: [
+      ["Lightning", ["Stop crane, scaffold, and roofing work the moment thunder is heard or lightning is seen — use the 30-30 rule (see the Lightning Timer tool).", "Do not resume elevated or exposed work until 30 minutes after the last thunder."]],
+      ["Wind", ["Most tower cranes: manufacturer limits typically call for stopping lifts around 20–25 mph sustained wind — check your specific crane's rated limit, this is a general reference only.", "Suspended scaffolds and aerial lifts: OSHA guidance generally calls for securing/lowering above 25–30 mph sustained wind or in gusty conditions.", "Treat any wind advisory or high-wind warning as an automatic stop for elevated work regardless of the numeric threshold."]],
+      ["Heat", ["Follow the WBGT tool's OSHA/NIOSH work/rest guidance for scheduling breaks on hot job sites."]],
+      ["Common mistakes", ["Restarting elevated work right after the rain stops, before the full 30-minute post-thunder window has passed — lightning risk outlasts the visible rain.", "Using a single generic wind number for every piece of equipment — cranes, scaffolds, and aerial lifts each have their own manufacturer-rated limits; check the specific equipment, not a rule of thumb."]]
+    ]},
+  { title: "School Outdoor Activity Heat Guide", sub: "Recess/sports go/no-go by heat-index band", g: ["#2E1030", "#A930B5"],
+    sections: [
+      ["Heat-index decision bands (typical school-athletics guidance)", ["Under 95°F heat index: normal outdoor activity with water breaks.", "95–104°F: increase water-break frequency, reduce practice intensity/duration, watch closely for symptoms.", "105–114°F: limit strenuous outdoor activity, mandatory frequent breaks in shade.", "115°F+: cancel outdoor practice/recess and move activity indoors."]],
+      ["What staff should watch for", ["Heavy sweating, weakness, nausea, or cool clammy skin: heat exhaustion — move the student to shade, hydrate, cool with water.", "Hot dry skin, confusion, or collapse: heat stroke — call emergency services immediately, cool rapidly while waiting."]],
+      ["Common mistakes", ["Applying the same thresholds to every student — younger children, students on certain medications, and those without recent heat acclimatization are at meaningfully higher risk at the same heat index.", "Checking the heat index once at the start of the day and not rechecking — afternoon heat index is often the day's peak, right when many practices/recess periods occur."]]
+    ]},
+  { title: "Outdoor Event Weather Planner", sub: "Plan around weather risk, know your backup", g: ["#1B2E3A", "#4FA0C6"],
+    sections: [
+      ["Planning ahead", ["Check your area's Regional Seasonal Risk Profile (Home screen) for the event date — avoid peak hurricane/monsoon/wildfire season where possible.", "Book a tent or indoor backup venue whenever the event is 3+ months out and outdoors — availability drops close to the date."]],
+      ["As the date approaches", ["7 days out: check the extended outlook for general trends (not a precise forecast yet).", "48 hours out: a reliable forecast window opens — decide on tenting/backup plan.", "Day-of: check the Alert Explainer for any active watch/warning and the Lightning Timer if storms are in the area."]],
+      ["Day-of decision points", ["Any severe thunderstorm or tornado watch: have your indoor backup ready to activate on short notice.", "Heat index over 100°F: add shade structures and extra water stations for outdoor guests."]],
+      ["Common mistakes", ["Assuming a rain contingency (a tent) also covers a lightning contingency — a tent offers no lightning protection; a true backup plan needs a substantial building nearby.", "Deciding day-of without a pre-agreed trigger — decide your go/no-go thresholds weeks in advance so it isn't an emotional, last-minute call."]]
+    ]},
+  { title: "Gardening Frost Protection", sub: "Covering, timing, plant tolerance basics", g: ["#102E18", "#30C650"],
+    sections: [
+      ["Timing", ["Don't plant tender annuals/vegetables until after your area's average last-frost date — a late frost can still occur after officially “safe” planting windows in some years.", "Watch for a frost advisory or freeze warning in the week after planting and be ready to cover."]],
+      ["Protecting plants", ["Cover with a sheet, burlap, or a commercial frost cloth before sunset — plastic sheeting touching leaves can make frost damage worse, use stakes to keep it off the foliage.", "Remove covers in the morning once temperatures rise above freezing so plants get light and don't overheat.", "Container plants are more frost-vulnerable than in-ground — move pots to a sheltered spot (against the house, in a garage) on frost nights."]],
+      ["Common mistakes", ["Using plastic sheeting directly on foliage — anywhere plastic touches a leaf, cold transfers through and can damage that spot even under “cover.”", "Watering the morning of a frost instead of the afternoon before — moist soil needs time to absorb heat during the day so it can release it back overnight."]]
+    ]}
+];
+
+const list = document.getElementById('hazard-list');
+ACTIVITIES.forEach(h => {
+    const details = document.createElement('details');
+    details.className = 'hazard-card';
+    const bodyHtml = h.sections.map(([title, steps]) =>
+        `<h4>${title}</h4><ul>${steps.map(s => `<li>${s}</li>`).join('')}</ul>`
+    ).join('');
+    details.innerHTML = `
+        <summary>
+            <span class="swatch" style="background:linear-gradient(135deg, ${h.g[0]}, ${h.g[1]})"></span>
+            <span class="titles"><h3>${h.title}</h3><div class="sub">${h.sub}</div></span>
+            <span class="chev">&#8250;</span>
+        </summary>
+        <div class="hazard-body">${bodyHtml}</div>`;
+    list.appendChild(details);
+});
+</script>
+
+</body>
+</html>
