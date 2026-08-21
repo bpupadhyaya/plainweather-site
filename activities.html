@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activity Guides — PlainWeather</title>
-    <meta name="description" content="All 8 of PlainWeather's offline activity go/no-go guides, browsable right here — the same content that ships free, forever, in the app. Numeric go/no-go thresholds for hiking, farming, fishing, cycling, construction, school sports, outdoor events, and gardening.">
+    <meta name="description" content="All 11 of PlainWeather's offline activity go/no-go guides, browsable right here — the same content that ships free, forever, in the app. Numeric go/no-go thresholds for hiking, farming, fishing, cycling, construction, school sports, outdoor events, gardening, daily commuting, road trips, and travel packing.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 46'%3E%3Ccircle cx='23' cy='23' r='21' fill='%230c2f4a'/%3E%3Cpath d='M25 8 L14 26 L21 26 L18 38 L32 19 L24 19 Z' fill='%231c7ed6'/%3E%3C/svg%3E">
     <meta name="theme-color" content="#0c2f4a">
     <link rel="stylesheet" href="assets/fonts/inter.css">
@@ -70,8 +70,8 @@
 </nav>
 
 <header class="page-hero wrap">
-    <h1>All 8 activity guides — free, always</h1>
-    <p>Numeric go/no-go thresholds for the moments a hazard guide doesn't quite cover — hiking, farming, fishing, cycling, construction, school sports, outdoor events, and gardening. The exact content that ships in the app, browsable here on a bigger screen.</p>
+    <h1>All 11 activity guides — free, always</h1>
+    <p>Numeric go/no-go thresholds for the moments a hazard guide doesn't quite cover — hiking, farming, fishing, cycling, construction, school sports, outdoor events, gardening, the daily commute, road trips, and travel packing. The exact content that ships in the app, browsable here on a bigger screen.</p>
 </header>
 
 <section>
@@ -87,7 +87,7 @@
             <h2>This content works with zero signal, in the app.</h2>
             <p>
                 Reading it here needs a connection to load the page once — but once PlainWeather is installed,
-                every one of these 8 activity guides is cached on your device and needs no signal, no account, ever.
+                every one of these 11 activity guides is cached on your device and needs no signal, no account, ever.
                 <a href="https://bpupadhyaya.github.io/privacy-plainweather.html" target="_blank" rel="noopener">Privacy Policy</a>.
             </p>
         </div>
@@ -170,6 +170,28 @@ const ACTIVITIES = [
       ["Timing", ["Don't plant tender annuals/vegetables until after your area's average last-frost date — a late frost can still occur after officially “safe” planting windows in some years.", "Watch for a frost advisory or freeze warning in the week after planting and be ready to cover."]],
       ["Protecting plants", ["Cover with a sheet, burlap, or a commercial frost cloth before sunset — plastic sheeting touching leaves can make frost damage worse, use stakes to keep it off the foliage.", "Remove covers in the morning once temperatures rise above freezing so plants get light and don't overheat.", "Container plants are more frost-vulnerable than in-ground — move pots to a sheltered spot (against the house, in a garage) on frost nights."]],
       ["Common mistakes", ["Using plastic sheeting directly on foliage — anywhere plastic touches a leaf, cold transfers through and can damage that spot even under “cover.”", "Watering the morning of a frost instead of the afternoon before — moist soil needs time to absorb heat during the day so it can release it back overnight."]]
+    ]},
+  { title: "Daily Commute & Work-Day Briefing", sub: "Walk, bike, drive, or transit — plan the day around the weather", g: ["#16232E", "#4F8FC0"],
+    sections: [
+      ["Before you leave", ["Check for any active watch/warning along your actual commute route, not just at home — conditions can differ block to block during a fast-moving storm.", "Lightning or thunder audible: delay leaving on foot or bike until 30 minutes after the last thunder (see the Lightning Timer tool).", "Heavy fog or a dust advisory: add extra travel time and use low-beam headlights, not high-beams, which reflect off fog and reduce visibility further."]],
+      ["Walking / biking commute", ["Heat index over 90°F: carry water, take a shaded route if possible, and change into work clothes after arriving rather than commuting in them.", "Wind chill below 20°F: cover exposed skin, and know that black ice risk is highest at dawn even when roads look dry.", "Check the UV Index & Sun Safety tool for a long uncovered walk, not just at midday — morning and evening exposure add up too."]],
+      ["Driving commute", ["The first rain after a dry spell makes roads more slippery than steady rain — oil residue hasn't washed away yet; slow down for the first 10-15 minutes of any new rain.", "Low-angle morning/evening sun glare can be as dangerous as poor visibility in fog — keep sunglasses in the car year-round.", "If a severe thunderstorm or tornado warning is issued while driving, pull into a sturdy building rather than continuing to your destination."]],
+      ["Common mistakes", ["Checking the forecast once before bed and not rechecking in the morning — overnight changes are common, especially for fast-moving systems.", "Assuming an office or indoor job means weather doesn't matter — a severe warning issued during the workday still affects the commute home; check again before you leave the building."]]
+    ]},
+  { title: "Road Trip & Travel Weather Planner", sub: "Check conditions along your whole route, not just at home", g: ["#4A1F14", "#E0703F"],
+    sections: [
+      ["Before you go", ["Check the Regional Seasonal Risk Profile (Home screen) for every region your route passes through, not just your destination — one drive can cross a hurricane zone, a wildfire zone, and a mountain pass.", "If traveling during a region's known hazard season (hurricane, wildfire, monsoon, winter storm), check for active watches/warnings the morning you leave, not just when you booked.", "Pack your Vehicle Emergency Kit before a long drive, sized for the most extreme conditions anywhere on your route, not just your starting point."]],
+      ["While traveling", ["Weather can shift materially over a few hours of driving — recheck conditions at a fuel stop rather than trusting the forecast you saw that morning.", "Mountain passes and desert routes can have dramatically different conditions than the valley or city you started in.", "If severe weather develops mid-route somewhere unfamiliar, use the Alert Explainer to understand what's being issued and the matching Hazard Guide for what to do — you don't need to know the local geography to follow the same universal actions."]],
+      ["Arriving somewhere unfamiliar", ["Look up the Regional Seasonal Risk Profile for your destination as soon as you arrive — a place you're visiting may have hazards (rip currents, wildfire smoke, monsoon flooding) that don't exist at home and are easy to underestimate.", "Identify the nearest sturdy shelter option (hotel interior room, sturdy building) as soon as you check in somewhere new, before you need it."]],
+      ["Common mistakes", ["Checking the weather only for your destination city and not for the route in between, especially on long drives through multiple climate zones.", "Assuming local warning systems work the same way you're used to — sirens, alert tones, and terminology can differ meaningfully by region; when in doubt, treat any local alert as serious and ask locals what it means."]]
+    ]},
+  { title: "Packing List by Climate & Season", sub: "What to pack, by destination climate and time of year", g: ["#2E1A3D", "#9A5EC2"],
+    sections: [
+      ["Hot & humid climates", ["Pack lightweight, moisture-wicking, breathable fabrics — cotton stays wet and uncomfortable once you sweat.", "Bring a change of clothes for midday if you'll be outside for hours — humidity keeps clothing damp far longer than dry heat.", "Pack a compact rain layer even outside the rainy season — humid climates often get sudden afternoon showers."]],
+      ["Hot & dry climates", ["Cover more skin, not less — loose, breathable long sleeves protect against sun and reduce water loss compared to going bare-skinned.", "Pack a wide-brim hat and high-SPF sunscreen; use the UV Index & Sun Safety tool to estimate your actual burn time before your trip.", "Nights can be surprisingly cold in dry climates, deserts especially — pack a light layer even for a summer desert trip."]],
+      ["Cold climates", ["Layer rather than relying on one heavy coat — a base wicking layer, an insulating mid-layer, and a windproof/waterproof outer layer adapt better to changing activity levels.", "Pack wool or synthetic socks, not cotton — wet cotton socks are a leading cause of frostbite on cold-weather trips.", "Bring hand/foot warmers and check the Wind Chill / Frostbite tool for your destination's typical conditions before you go, not after landing."]],
+      ["Wet / monsoon-prone climates", ["Pack quick-dry fabrics and a compact, packable rain shell — heavy rain gear is often overkill and slow to dry between wearings.", "Waterproof or water-resistant footwear matters more than an umbrella in sustained monsoon rain and wind.", "Check the Regional Seasonal Risk Profile for your destination's flood-prone months before booking — some regions see daily flash-flood-level rain during peak monsoon season."]],
+      ["Common mistakes", ["Packing for the climate you're leaving, not the one you're arriving in — check your destination's actual seasonal norms, since “summer” means very different things in different hemispheres and climates.", "Forgetting that indoor air conditioning in hot climates can be aggressively cold — pack at least one light layer even for a trip to a hot destination."]]
     ]}
 ];
 
